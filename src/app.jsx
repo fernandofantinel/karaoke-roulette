@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Wheel } from "react-custom-roulette";
 import { Sponsor } from "./sponsor";
+import { Wheel } from "react-custom-roulette";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const rouletteOptions = [
   {
@@ -64,6 +65,8 @@ export function App() {
       }, 1000);
     }
   }
+
+  useHotkeys(["space", "enter"], () => spinRoulette(rouletteOptions.length));
 
   return (
     <>
