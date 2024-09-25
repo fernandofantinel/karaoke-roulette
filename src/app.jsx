@@ -44,6 +44,8 @@ export function App() {
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [easterEggSponsor, setEasterEggSponsor] = useState(false);
 
+  const spinButton = document.getElementById("spinButton");
+
   function spinRoulette(rouletteTotalOptions) {
     if (rouletteMustSpin) {
       return;
@@ -66,7 +68,7 @@ export function App() {
     }
   }
 
-  useHotkeys(["space", "enter"], () => spinRoulette(rouletteOptions.length));
+  useHotkeys(["space", "enter"], () => spinButton.click());
 
   return (
     <>
@@ -91,6 +93,7 @@ export function App() {
           </div>
           <button
             onClick={() => spinRoulette(rouletteOptions.length)}
+            id="spinButton"
             className="bg-amber-300 text-amber-950 text-xl font-bold py-3 rounded-xl hover:bg-amber-400"
           >
             Sortear
