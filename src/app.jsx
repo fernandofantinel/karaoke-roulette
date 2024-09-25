@@ -2,49 +2,36 @@ import { useState } from "react";
 import { Wheel } from "react-custom-roulette";
 import { Sponsor } from "./sponsor";
 
-const musicGenres = [
-  "Rock",
-  "Samba e Pagode",
-  "Sertanejo",
-  "MPB",
-  "Axé",
-  "Brega",
-  "Reggaeton",
-  "Pop",
-  "Funk",
-  "Você Escolhe",
-];
-
 const rouletteOptions = [
   {
-    option: musicGenres[0],
+    option: "Rock",
   },
   {
-    option: musicGenres[1],
+    option: "Samba e Pagode",
   },
   {
-    option: musicGenres[2],
+    option: "Sertanejo",
   },
   {
-    option: musicGenres[3],
+    option: "MPB",
   },
   {
-    option: musicGenres[4],
+    option: "Axé",
   },
   {
-    option: musicGenres[5],
+    option: "Brega",
   },
   {
-    option: musicGenres[6],
+    option: "Reggaeton",
   },
   {
-    option: musicGenres[7],
+    option: "Pop",
   },
   {
-    option: musicGenres[8],
+    option: "Funk",
   },
   {
-    option: musicGenres[9],
+    option: "Você Escolhe",
     style: { backgroundColor: "#b45309" },
   },
 ];
@@ -100,7 +87,7 @@ export function App() {
             />
           </div>
           <button
-            onClick={() => spinRoulette(musicGenres.length)}
+            onClick={() => spinRoulette(rouletteOptions.length)}
             className="bg-amber-300 text-amber-950 text-xl font-bold py-3 rounded-xl hover:bg-amber-400"
           >
             Sortear
