@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Wheel } from "react-custom-roulette";
+import { Sponsor } from "./sponsor";
 
 const musicGenres = [
   "Rock",
@@ -48,9 +49,12 @@ const rouletteOptions = [
   },
 ];
 
+const easterEggSponsorMaxProbability = 19;
+
 export function App() {
   const [rouletteMustSpin, setRouletteMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
+  const [easterEggSponsor, setEasterEggSponsor] = useState(false);
 
   function spinRoulette(rouletteTotalOptions) {
     if (rouletteMustSpin) {
@@ -60,35 +64,51 @@ export function App() {
     const drawnOption = Math.floor(Math.random() * rouletteTotalOptions);
     setPrizeNumber(drawnOption);
     setRouletteMustSpin(true);
+
+    const easterEggSponsorDrawnProbability = Math.floor(
+      Math.random() * easterEggSponsorMaxProbability,
+    );
+
+    if (easterEggSponsorDrawnProbability === 1) {
+      setEasterEggSponsor(true);
+
+      setTimeout(() => {
+        setEasterEggSponsor(false);
+      }, 1000);
+    }
   }
 
   return (
-    <div className="h-full w-full items-center flex flex-col mt-8">
-      <div>
-        <h1 className="text-8xl">Karaoke Roulette</h1>
-      </div>
-      <div className="flex flex-col gap-8 mt-12">
+    <>
+      <div className="items-center flex flex-col mt-8">
         <div>
-          <Wheel
-            mustStartSpinning={rouletteMustSpin}
-            prizeNumber={prizeNumber}
-            data={rouletteOptions}
-            backgroundColors={["#fcd34d", "#f59e0b"]}
-            textColors={["#451a03"]}
-            fontFamily="Inter"
-            spinDuration={0.6}
-            onStopSpinning={() => {
-              setRouletteMustSpin(false);
-            }}
-          />
+          <h1 className="text-8xl">Karaoke Roulette</h1>
         </div>
-        <button
-          onClick={() => spinRoulette(musicGenres.length)}
-          className="bg-amber-300 text-amber-950 text-xl font-bold py-3 rounded-xl hover:bg-amber-400"
-        >
-          Sortear
-        </button>
+        <div className="flex flex-col gap-8 mt-12">
+          <div>
+            <Wheel
+              mustStartSpinning={rouletteMustSpin}
+              prizeNumber={prizeNumber}
+              data={rouletteOptions}
+              backgroundColors={["#fcd34d", "#f59e0b"]}
+              textColors={["#451a03"]}
+              fontFamily="Inter"
+              spinDuration={0.6}
+              onStopSpinning={() => {
+                setRouletteMustSpin(false);
+              }}
+            />
+          </div>
+          <button
+            onClick={() => spinRoulette(musicGenres.length)}
+            className="bg-amber-300 text-amber-950 text-xl font-bold py-3 rounded-xl hover:bg-amber-400"
+          >
+            Sortear
+          </button>
+        </div>
       </div>
-    </div>
+
+      {easterEggSponsor && <Sponsor />}
+    </>
   );
 }
