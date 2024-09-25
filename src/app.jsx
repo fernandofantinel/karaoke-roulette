@@ -3,6 +3,7 @@ import { Sponsor } from "./sponsor";
 import { Wheel } from "react-custom-roulette";
 import { useHotkeys } from "react-hotkeys-hook";
 import { motion } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const rouletteOptions = [
   {
@@ -101,6 +102,7 @@ export function App() {
       </div>
 
       {easterEggSponsor && <Sponsor />}
+      <SpeedInsights />
     </>
   );
 }
