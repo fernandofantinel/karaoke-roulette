@@ -75,7 +75,7 @@ export function App() {
     <>
       <div className="items-center flex flex-col mt-8">
         <div>
-          <h1 className="text-8xl">Karaoke Roulette</h1>
+          <h1 className="text-4xl md:text-7xl">Karaoke Roulette</h1>
         </div>
         <div className="flex flex-col gap-8 mt-12">
           <Wheel
