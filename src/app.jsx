@@ -40,7 +40,6 @@ const rouletteOptions = [
 ];
 
 const easterEggSponsorMaxProbability = 19;
-const spinButton = document.getElementById("spinButton");
 
 export function App() {
   const [rouletteMustSpin, setRouletteMustSpin] = useState(false);
@@ -69,7 +68,9 @@ export function App() {
     }
   }
 
-  useHotkeys(["space", "enter"], () => spinButton.click());
+  useHotkeys(["space", "enter"], () =>
+    document.getElementById("spinButton").click(),
+  );
 
   return (
     <>
