@@ -72,7 +72,7 @@ export function App() {
 
   return (
     <>
-      <div className="items-center flex flex-col mt-8">
+      <div className="items-center flex flex-col mt-8 overflow-hidden">
         <div>
           <h1 className="text-4xl md:text-7xl">Karaoke Roulette</h1>
         </div>
