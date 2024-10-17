@@ -91,6 +91,7 @@ export function App() {
             }}
           />
           <motion.button
+            type="button"
             onClick={() => spinRoulette()}
             id="spinButton"
             className="bg-amber-300 text-amber-950 text-xl font-bold py-3 rounded-xl hover:bg-amber-400"
