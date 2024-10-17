@@ -68,9 +68,7 @@ export function App() {
     }
   }
 
-  useHotkeys(["space", "enter"], () =>
-    document.getElementById("spinButton").click(),
-  );
+  useHotkeys(["enter"], () => document.getElementById("spinButton").click());
 
   return (
     <>
