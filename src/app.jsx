@@ -4,39 +4,19 @@ import { Wheel } from "react-custom-roulette";
 import { useHotkeys } from "react-hotkeys-hook";
 import { motion } from "framer-motion";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { GithubLogoIcon, InstagramLogoIcon } from "@phosphor-icons/react";
 
 const rouletteOptions = [
-  {
-    option: "Rock",
-  },
-  {
-    option: "Samba e Pagode",
-  },
-  {
-    option: "Sertanejo",
-  },
-  {
-    option: "MPB",
-  },
-  {
-    option: "Axé",
-  },
-  {
-    option: "Brega",
-  },
-  {
-    option: "Reggaeton",
-  },
-  {
-    option: "Pop",
-  },
-  {
-    option: "Funk",
-  },
-  {
-    option: "Você Escolhe",
-    style: { backgroundColor: "#b45309" },
-  },
+  { option: "Rock" },
+  { option: "Samba e Pagode" },
+  { option: "Sertanejo" },
+  { option: "MPB" },
+  { option: "Axé" },
+  { option: "Brega" },
+  { option: "Reggaeton" },
+  { option: "Pop" },
+  { option: "Funk" },
+  { option: "Você Escolhe", style: { backgroundColor: "#b45309" } },
 ];
 
 const easterEggSponsorMaxProbability = 19;
@@ -71,7 +51,7 @@ export function App() {
   useHotkeys(["enter"], () => document.getElementById("spinButton").click());
 
   return (
-    <>
+    <div className="relative">
       <div className="items-center flex flex-col mt-8 overflow-hidden">
         <div>
           <h1 className="text-4xl md:text-7xl">Karaoke Roulette</h1>
@@ -103,6 +83,32 @@ export function App() {
 
       {easterEggSponsor && <Sponsor />}
       <SpeedInsights />
-    </>
+
+      <div className="mt-16 mb-8 md:fixed md:bottom-0 md:right-0 md:px-4">
+        <div className="flex flex-col gap-2 items-center text-sm">
+          <span>Desenvolvido por Fanti</span>
+          <div className="flex gap-2">
+            <a
+              href="https://instagram.com/fantifs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-amber-500 font-bold">
+                <InstagramLogoIcon size={32} />
+              </span>
+            </a>
+            <a
+              href="https://github.com/fernandofantinel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-amber-500 font-bold">
+                <GithubLogoIcon size={32} />
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
